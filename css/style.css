@@ -189,41 +189,85 @@ body::after {
     text-decoration: none;
 }
 /** адаптивность под разные устройства */
+/* Мобильная версия — полный редизайн */
 @media (max-width: 767px) {
-    main {
-        width: 100%;
-        padding: 0 10px;
-        box-sizing: border-box;
+    body {
+        padding: 0;
+        justify-content: flex-start;
     }
-    .profile-card, 
+
+    main.container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .profile-card,
     .stats-card {
         width: 100%;
         max-width: 100%;
-        margin: 0 0 15px 0;
-        border-radius: 10px;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        background: rgba(30, 30, 30, 0.9);
     }
-    .profile-image {
-        width: 120px;
-        height: 120px;
+
+    .profile-card {
+        padding: 20px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .skill-item {
-        padding: 12px 15px;
-    }
-    .social-link {
-        font-size: 1.6rem;
-        margin: 0 10px;
-    }
+
     .stats-card {
-        margin-top: -5px; 
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        border-width: 2px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-item {
+        padding: 12px;
+        margin-bottom: 8px;
+        border-left: 3px solid #6c5ce7;
+    }
+
+    .skill-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social-link {
+        font-size: 1.5rem;
+        margin: 0 12px;
+    }
+
+    .progress {
+        height: 6px;
     }
 }
-@media (max-width: 360px) {
-    .profile-card, 
-    .stats-card {
-        padding: 15px 12px;
+
+/* Для узких экранов (например, iPhone 5/SE) */
+@media (max-width: 320px) {
+    .profile-image {
+        width: 80px;
+        height: 80px;
     }
-    
-    .section-title {
-        font-size: 1.1rem;
+
+    .skill-item {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .social-link {
+        font-size: 1.3rem;
     }
 }
