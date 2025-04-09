@@ -65,7 +65,6 @@ body::after {
 }
 
 .stats-card {
-    bottom: 0;
     position: relative;
     background: rgba(45, 42, 42, 0.25); 
     backdrop-filter: blur(12px); 
@@ -189,23 +188,40 @@ body::after {
     color: #6c5ce7;
     text-decoration: none;
 }
-
+/** адаптивность под разные устройства */
 @media (min-width: 992px) {
     main {
         flex-direction: row;
         align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .profile-card {
         margin-right: 20px;
+        margin-bottom: 20px;
     }
     
     .stats-card {
         margin-left: 20px;
+        margin-bottom: 20px;
     }
 }
-
-@media (max-width: 991px) {
+@media (max-width: 991px) and (min-width: 768px) {
+    main {
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .profile-card, .stats-card {
+        width: 45%;
+        min-width: 350px;
+        margin: 1rem;
+    }
+}
+@media (max-width: 767px) {
     main {
         flex-direction: column;
         align-items: center;
@@ -214,7 +230,11 @@ body::after {
     .profile-card, .stats-card {
         width: 90%;
         max-width: 400px;
-        margin: 1rem auto;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .stats-card {
+        order: 2;
     }
 }
 
