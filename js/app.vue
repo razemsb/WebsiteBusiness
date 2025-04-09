@@ -18,10 +18,10 @@ createApp({
         ]);
 
         const languageStats = ref([
-            { name: 'HTML', percentage: 25, color: '#e34c26' },
-            { name: 'CSS', percentage: 20, color: '#2965f1' },
-            { name: 'JavaScript', percentage: 30, color: '#f0db4f' },
-            { name: 'PHP', percentage: 15, color: '#787cb5' },
+            { name: 'PHP', percentage: 30, color: '#787cb5' },
+            { name: 'CSS', percentage: 25, color: '#2965f1' },
+            { name: 'JavaScript', percentage: 20, color: '#f0db4f'},
+            { name: 'HTML', percentage: 15, color: '#e34c26' },
             { name: 'Other', percentage: 10, color: '#41b883' }
         ]);
 
