@@ -76,16 +76,30 @@ body::after {
     margin: 1rem;
     padding: 1.5rem;
 }
-
 .stats-portfolio-container {
+    position: absolute;
+    right: 4rem; /* Уменьшил отступ справа */
+    top: -100; 
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    width: 400px;
+    max-width: calc(100% - 40px);
+    padding: 1.5rem;
+    box-sizing: border-box;
 }
 
+
+@media (max-width: 768px) {
+    .stats-portfolio-container {
+        position: static;
+        width: 94%;
+        max-width: 100%;
+        margin: 20px auto;
+        right: auto;
+        top: auto;
+    }
+}
 .portfolio-card {
     width: 400px;   
     background: rgba(45, 42, 42, 0.25);

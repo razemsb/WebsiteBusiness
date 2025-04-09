@@ -21,11 +21,11 @@ createApp({
         ]);
 
         const languageStats = ref([
-            { name: 'PHP', percentage: 30, color: '#787cb5' },
-            { name: 'CSS', percentage: 25, color: '#2965f1' },
-            { name: 'JavaScript', percentage: 20, color: '#f0db4f'},
-            { name: 'HTML', percentage: 15, color: '#e34c26' },
-            { name: 'Other', percentage: 10, color: '#41b883' }
+            { name: 'PHP', percentage: 25, color: '#787cb5' },
+            { name: 'JavaScript', percentage: 25, color: '#f0db4f'},
+            { name: 'Vue.js', percentage: 20, color: '#41b883' },
+            { name: 'CSS', percentage: 15, color: '#2965f1' },
+            { name: 'HTML', percentage: 15, color: '#e34c26' }
         ]);
 
         const toggleActive = (skill) => {
