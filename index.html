@@ -42,22 +42,39 @@
                 <div class="card-footer text-center mt-2">
                 </div>
             </div>
-
-            <div class="stats-card">
-                <h5 class="section-title">Language Usage</h5>
-                <div class="stats-list">
-                    <div v-for="stat in languageStats" :key="stat.name" class="stat-item">
-                        <div class="stat-info">
-                            <span>{{ stat.name }}</span>
-                            <span>{{ stat.percentage }}%</span>
+            <div class="stats-portfolio-container">
+                <!-- Статистика языков -->
+                <div class="stats-card">
+                    <h5 class="section-title">Language Usage</h5>
+                    <div class="stats-list">
+                        <div v-for="stat in languageStats" :key="stat.name" class="stat-item">
+                            <div class="stat-info">
+                                <span>{{ stat.name }}</span>
+                                <span>{{ stat.percentage }}%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" 
+                                     :style="{ width: stat.percentage + '%', 'background-color': stat.color }"
+                                     role="progressbar" 
+                                     :aria-valuenow="stat.percentage" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" 
-                                 :style="{ width: stat.percentage + '%', 'background-color': stat.color }"
-                                 role="progressbar" 
-                                 :aria-valuenow="stat.percentage" 
-                                 aria-valuemin="0" 
-                                 aria-valuemax="100">
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <h5 class="section-title">Projects Portfolio</h5>
+                    <div class="portfolio-list">
+                        <div class="project-item">
+                            <h3>FileManager</h3>
+                            <p class="project-description">FileManager</p>
+                            <div class="project-technologies">
+                                <span class="tech-badge">Vue.js</span>
+                                <span class="tech-badge">PHP (API)</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <a href="https://github.com/razemsb/FileManager" class="social-link"><i class="bi bi-github"></i></a>
                             </div>
                         </div>
                     </div>

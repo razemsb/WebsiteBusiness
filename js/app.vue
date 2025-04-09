@@ -1,4 +1,7 @@
-const { createApp, ref } = Vue;
+const { 
+    createApp, 
+    ref 
+} = Vue;
 
 createApp({
     setup() {
