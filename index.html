@@ -6,6 +6,7 @@
     <title>razemsb | Web Developer Portfolio</title>
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="preload" href="img/background_rei.webm" as="video/webm">
+    <link rel="preload" href="img/avatar-video.mp4" as="video/mp4">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
@@ -22,7 +23,10 @@
             </video>
             <div class="profile-card">
                 <div class="card-header text-center">
-                    <img src="img/asuka.jpeg" class="profile-image rounded-circle" alt="Profile Picture">
+                    <video id="avatar-video" autoplay muted loop class="profile-image rounded-circle">
+                        <source src="img/avatar-video.mp4" type="video/mp4">
+                    </video> 
+                    <!-- <img src="img/avatar.jpg" class="profile-image rounded-circle" alt="Profile Picture"> -->
                     <h1 class="mt-3">razemsb</h1>
                     <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank" class="social-link">
                         <i :class="'bi bi-' + social.icon"></i>

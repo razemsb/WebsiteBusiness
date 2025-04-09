@@ -8,7 +8,7 @@ createApp({
         const skills = ref([
             { name: 'HTML5', icon: 'html-5.png', active: false },
             { name: 'CSS3', icon: 'css-3.png', active: false },
-            { name: 'Bootstrap', icon: 'bootstrap.png', active: false },
+            { name: 'Bootstrap 5.3.3', icon: 'bootstrap.png', active: false },
             { name: 'JavaScript', icon: 'js.png', active: false },
             { name: 'Vue.js', icon: 'vue.png', active: false },
             { name: 'PHP', icon: 'php.png', active: false },
