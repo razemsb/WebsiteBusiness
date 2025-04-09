@@ -1,7 +1,4 @@
-const { 
-    createApp, 
-    ref 
-} = Vue;
+const { createApp, ref } = Vue;
 
 createApp({
     setup() {
@@ -20,6 +17,14 @@ createApp({
             { name: 'Telegram', url: 'https://t.me/razemsb', icon: 'telegram' }
         ]);
 
+        const languageStats = ref([
+            { name: 'HTML', percentage: 25, color: '#e34c26' },
+            { name: 'CSS', percentage: 20, color: '#2965f1' },
+            { name: 'JavaScript', percentage: 30, color: '#f0db4f' },
+            { name: 'PHP', percentage: 15, color: '#787cb5' },
+            { name: 'Other', percentage: 10, color: '#41b883' }
+        ]);
+
         const toggleActive = (skill) => {
             skill.active = !skill.active;
         };
@@ -27,6 +32,7 @@ createApp({
         return {
             skills,
             socialLinks,
+            languageStats,
             toggleActive
         };
     },
