@@ -80,7 +80,7 @@
                     <h5 class="section-title">Projects Portfolio</h5>
                     <div class="portfolio-list">
                         <div class="project-item" v-for="(project, index) in projects" :key="project.name" :style="`animation-delay: ${index * 0.2 + 0.2}s`">
-                            <h3>{{ project.name }}</h3>
+                            <h3>{{ project.name }} <span class="d-flex float-end"><i class="bi bi-arrow-down"></i><i class="bi bi-arrow-up"></i></span></h3>
                             <p class="project-description">{{ project.description }}</p>
                             <div class="project-technologies">
                                 <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{ tech }}</span>
