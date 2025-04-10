@@ -386,13 +386,13 @@ body {
       padding: 1.2rem;
     }
     i.bi.bi-arrow-down {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: var(--text-muted);
         display: block;
         transition: all 0.3s ease;
     }
     i.bi.bi-arrow-up {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: var(--text-muted);
         display: none;
         transition: all 0.3s ease;
@@ -416,6 +416,30 @@ body {
     .project-item {
       padding: .8rem;
     }
+    i.bi.bi-arrow-down {
+        font-size: 1rem;
+        color: var(--text-muted);
+        display: block;
+        transition: all 0.3s ease;
+      }
+      i.bi.bi-arrow-up {
+        font-size: 1rem;
+        color: var(--text-muted);
+        display: none;
+        transition: all 0.3s ease;
+      }
+    
+      .project-item:hover .tech-badge {
+        transform: scale(1);
+      }
+    
+      .project-item:hover i.bi.bi-arrow-down {
+        display: none;
+      }
+    
+      .project-item:hover i.bi.bi-arrow-up {
+        display: block;
+      }
   }
   @media (max-width:767px) {
     body {
