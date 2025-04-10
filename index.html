@@ -29,25 +29,26 @@
 <body>
     <div id="app">
         <main class="d-flex flex-wrap justify-content-center align-items-start">
-            <video id="background-video" autoplay muted loop>
+            <video id="background-video" autoplay muted loop class="fade-in">
                 <source src="img/background_rei.webm" type="video/webm">
                 Your browser does not support HTML5 video.
             </video>
-            <div class="profile-card">
+            <div class="profile-card slide-in-left">
                 <div class="card-header text-center">
-                    <video id="avatar-video" autoplay muted loop class="profile-image rounded-circle">
+                    <video id="avatar-video" autoplay muted loop class="profile-image rounded-circle pulse">
                         <source src="img/avatar-video.mp4" type="video/mp4">
                     </video> 
-                    <!-- <img src="img/avatar.jpg" class="profile-image rounded-circle" alt="Profile Picture"> -->
-                    <h1 class="mt-3">razemsb</h1>
-                    <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank" class="social-link">
-                        <i :class="'bi bi-' + social.icon"></i>
-                    </a>
+                    <h1 class="mt-3 text-pop">razemsb</h1>
+                    <div class="social-links">
+                        <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank" class="social-link bounce">
+                            <i :class="'bi bi-' + social.icon"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <h5 class="section-title">My Stack</h5>
                     <div class="skills-list">
-                        <div v-for="skill in skills" :key="skill.name" class="skill-item" @click="toggleActive(skill)">
+                        <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item" @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
                             <div class="skill-info">
                                 <span :class="skill.name.toLowerCase()">{{ skill.name }}</span>
                                 <img :src="'img/' + skill.icon" :alt="skill.name + ' icon'" class="skill-icon">
@@ -57,10 +58,10 @@
                 </div>
             </div>
             <div class="stats-portfolio-container">
-                <div class="stats-card">
+                <div class="stats-card slide-in-right">
                     <h5 class="section-title">Language Usage</h5>
                     <div class="stats-list">
-                        <div v-for="stat in languageStats" :key="stat.name" class="stat-item">
+                        <div v-for="(stat, index) in languageStats" :key="stat.name" class="stat-item" :style="`animation-delay: ${index * 0.1}s`">
                             <div class="stat-info">
                                 <span>{{ stat.name }}</span>
                                 <span>{{ stat.percentage }}%</span>
@@ -77,27 +78,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-card">
+                <div class="portfolio-card slide-in-right delay-1">
                     <h5 class="section-title">Projects Portfolio</h5>
                     <div class="portfolio-list">
-                        <div class="project-item">
-                            <h3>FileManager</h3>
-                            <p class="project-description">FileManager</p>
+                        <div class="project-item" v-for="(project, index) in projects" :key="project.name" :style="`animation-delay: ${index * 0.2 + 0.2}s`">
+                            <h3>{{ project.name }}</h3>
+                            <p class="project-description">{{ project.description }}</p>
                             <div class="project-technologies">
-                                <span class="tech-badge">Vue.js</span>
-                                <span class="tech-badge">PHP (API)</span>
-                                <span class="tech-badge">Bootstrap 5.3.3</span>
-                                <a href="https://github.com/razemsb/FileManager" class="social-link"><i class="bi bi-github"></i></a>
-                            </div>
-                        </div>
-                        <div class="project-item">
-                            <h3>WebPlayer</h3>
-                            <p class="project-description">WebPlayer</p>
-                            <div class="project-technologies">
-                                <span class="tech-badge">Vue.js</span>
-                                <span class="tech-badge">PHP (API)</span>
-                                <span class="tech-badge">Bootstrap 5.3.3</span>
-                                <a href="https://github.com/razemsb/WebPlayer" class="social-link"><i class="bi bi-github"></i></a>
+                                <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{ tech }}</span>
+                                <a :href="project.githubUrl" class="social-link" target="_blank">
+                                    <i class="bi bi-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
