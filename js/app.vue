@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            expandedGroup: null,
             socialLinks: [
                 { name: 'GitHub', url: 'https://github.com/razemsb', icon: 'github' },
                 { name: 'Telegram', url: 'https://t.me/razemsb', icon: 'telegram' },
@@ -23,6 +24,42 @@ createApp({
                 { name: 'HTML/CSS', percentage: 15, color: '#e34c26' },
                 { name: 'SQL', percentage: 10, color: '#00758f' }
             ],
+            Team: [
+                { name: 'razemsb (me)' },
+                { name: 'Kamikaze236' },
+                { name: 'ratPunk' },
+                { name: 'AutiDarkness' },
+                { name: 'Lagger125' },
+                { name: 'L1M1IT' }
+            ],
+            groups: [
+                {
+                    name: "Development Team",
+                    icon: "bi-code-square",
+                    description: "Core development team working on main projects",
+                    members: ["Kamikaze236", "ratPunk", "AutiDarkness", "Lagger125", "L1M1IT"],
+                    roles: ["Lead Developer", "UI/UX Designer"],
+                    technologies: ["Vue.js", "PHP", "Bootstrap", "MySQL"],
+                    achievements: ["Launched 5+ projects", "Optimized performance by 40%"]
+                },
+                {
+                    name: "Design Collective",
+                    icon: "bi-palette",
+                    description: "Creative team responsible for visual design",
+                    members: ["DesignMaster", "PixelArtist", "UXWizard"],
+                    roles: ["UI Consultant"],
+                    technologies: ["Figma", "Adobe XD", "Photoshop"]
+                },
+                {
+                    name: "Open Source Contributors",
+                    icon: "bi-github",
+                    description: "Group collaborating on open source projects",
+                    members: ["Dev1", "Dev2", "Dev3"],
+                    roles: ["Maintainer", "Code Reviewer"],
+                    technologies: ["JavaScript", "PHP", "Vue.js"],
+                    achievements: ["Nothing :("]
+                }
+            ],
             projects: [
                 { 
                     name: 'FileManager', 
@@ -42,10 +79,12 @@ createApp({
     methods: {
         toggleActive(skill) {
             skill.active = !skill.active;
+        },
+        toggleGroup(index) {
+            this.expandedGroup = this.expandedGroup === index ? null : index;
         }
     },
     mounted() {
-        // Animate progress bars on mount
         setTimeout(() => {
             const progressBars = document.querySelectorAll('.progress-bar');
             progressBars.forEach(bar => {

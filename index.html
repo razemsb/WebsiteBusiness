@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="section-title">My Stack</h5>
+                    <h5 class="section-title mt-2">My Stack</h5>
                     <div class="skills-list">
                         <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item" @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
                             <div class="skill-info">
@@ -55,7 +55,56 @@
                     </div>
                 </div>
             </div>
+            <div class="my-team side-in-left">
+                <h5 class="section-title">My teams</h5>
+                <div v-for="(Team, index) in Team" :key="Team.name" class="skill-item" :style="`animation-delay: ${index * 0.1}s`">
+                    <div class="skill-info align-items-center">
+                        <h6><i class="bi bi-laptop"></i><span class="team-name">{{ Team.name }}</span></h6>
+                    </div>
+                </div>
+            </div>
             <div class="stats-portfolio-container">
+                <div class="my-group side-in-right">
+                    <div class="title-wrapper">
+                        <span class="section-title">My Group, EnigmaDevix</span>
+                    </div>
+                    <div 
+                        v-for="(group, index) in groups" 
+                        :key="index" 
+                        class="group-item" 
+                        :style="`animation-delay: ${index * 0.1}s`"
+                        @click="toggleGroup(index)"
+                    >
+                        <div class="group-header">
+                            <i class="bi" :class="group.icon || 'bi-people-fill'"></i>
+                            <span class="group-name">{{ group.name }}</span>
+                            <i class="bi float-end" :class="expandedGroup === index ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                        </div>
+                        
+                        <div class="group-details" v-if="expandedGroup === index">
+                            <div class="detail-item" v-if="group.description">
+                                <i class="bi bi-info-circle"></i>
+                                <span>{{ group.description }}</span>
+                            </div>
+                            <div class="detail-item" v-if="group.members && group.members.length">
+                                <i class="bi bi-person-badge"></i>
+                                <span>Members: {{ group.members.join(', ') }}</span>
+                            </div>
+                            <div class="detail-item" v-if="group.roles">
+                                <i class="bi bi-award"></i>
+                                <span>My Role: {{ group.roles.join(', ') }}</span>
+                            </div>
+                            <div class="detail-item" v-if="group.technologies">
+                                <i class="bi bi-code-slash"></i>
+                                <span>Tech Stack: {{ group.technologies.join(', ') }}</span>
+                            </div>
+                            <div class="detail-item" v-if="group.achievements">
+                                <i class="bi bi-trophy"></i>
+                                <span>Achievements: {{ group.achievements.join(', ') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="stats-card slide-in-right">
                     <h5 class="section-title">Language Usage</h5>
                     <div class="stats-list">
