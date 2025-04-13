@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RazeMsb | Web Developer Portfolio - Vue.js, PHP, Bootstrap Specialist</title>
-    <meta name="description" content="Professional portfolio of RazemSB, a web developer specializing in Vue.js, PHP, and Bootstrap. Check out my projects and skills.">
+    <meta name="description"
+        content="Professional portfolio of RazemSB, a web developer specializing in Vue.js, PHP, and Bootstrap. Check out my projects and skills.">
     <meta name="keywords" content="web developer, portfolio, Vue.js, PHP, Bootstrap, frontend, backend, fullstack">
     <meta property="og:title" content="RazeMsb | Web Developer Portfolio">
-    <meta property="og:description" content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
+    <meta property="og:description"
+        content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
     <meta property="og:image" content="https://razemsb.github.io/img/avatar.jpg">
     <meta property="og:url" content="https://razemsb.github.io">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RazeMsb | Web Developer Portfolio">
-    <meta name="twitter:description" content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
+    <meta name="twitter:description"
+        content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
     <link rel="shortcut icon" href="img/logo.jpg">
     <link rel="preload" href="img/background_rei.webm" as="video/webm">
     <link rel="preload" href="img/avatar-video.mp4" as="video/mp4">
@@ -23,8 +27,44 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/app.vue" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/language.js" defer></script>
+    <style>
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(45, 42, 42, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(108, 92, 231, 0.3);
+        }
+
+        .lang-btn.active {
+            background: rgba(108, 92, 231, 0.5);
+        }
+    </style>
 </head>
+
 <body>
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <div id="app">
         <main class="d-flex flex-wrap justify-content-center align-items-start">
             <video id="background-video" autoplay muted loop class="fade-in">
@@ -35,18 +75,20 @@
                 <div class="card-header text-center">
                     <video id="avatar-video" autoplay muted loop class="profile-image rounded-circle pulse">
                         <source src="img/avatar-video.mp4" type="video/mp4">
-                    </video> 
+                    </video>
                     <h1 class="mt-3 text-pop">razemsb</h1>
                     <div class="social-links">
-                        <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank" class="social-link bounce">
+                        <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
+                            class="social-link bounce">
                             <i :class="'bi bi-' + social.icon"></i>
                         </a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="section-title mt-2">My Stack</h5>
+                    <h2 class="section-title" data-translate="MY STACK">MY STACK</h2>
                     <div class="skills-list">
-                        <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item" @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
+                        <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item"
+                            @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
                             <div class="skill-info">
                                 <span :class="skill.name.toLowerCase()">{{ skill.name }}</span>
                                 <img :src="'img/' + skill.icon" :alt="skill.name + ' icon'" class="skill-icon">
@@ -56,8 +98,9 @@
                 </div>
             </div>
             <div class="my-team side-in-left">
-                <h5 class="section-title">My teams</h5>
-                <div v-for="(Team, index) in Team" :key="Team.name" class="skill-item" :style="`animation-delay: ${index * 0.1}s`">
+                <h2 class="section-title" data-translate="MY GROUP, ENIGMADEVIX">MY GROUP, ENIGMADEVIX</h2>
+                <div v-for="(Team, index) in Team" :key="Team.name" class="skill-item"
+                    :style="`animation-delay: ${index * 0.1}s`">
                     <div class="skill-info align-items-center">
                         <h6><i class="bi bi-laptop"></i><span class="team-name">{{ Team.name }}</span></h6>
                     </div>
@@ -68,71 +111,75 @@
                     <div class="title-wrapper">
                         <span class="section-title">My Group, EnigmaDevix</span>
                     </div>
-                    <div 
-                        v-for="(group, index) in groups" 
-                        :key="index" 
-                        class="group-item" 
-                        :style="`animation-delay: ${index * 0.1}s`"
-                        @click="toggleGroup(index)"
-                    >
+                    <div v-for="(group, index) in groups" :key="index" class="group-item"
+                        :style="`animation-delay: ${index * 0.1}s`" @click="toggleGroup(index)">
                         <div class="group-header">
                             <i class="bi" :class="group.icon || 'bi-people-fill'"></i>
-                            <span class="group-name">{{ group.name }}</span>
-                            <i class="bi float-end" :class="expandedGroup === index ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                            <span class="group-name" :data-translate="group.name">{{ group.name }}</span>
+                            <i class="bi float-end"
+                                :class="expandedGroup === index ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
                         </div>
-                        
+
                         <div class="group-details" v-if="expandedGroup === index">
                             <div class="detail-item" v-if="group.description">
                                 <i class="bi bi-info-circle"></i>
-                                <span>{{ group.description }}</span>
+                                <span :data-translate="group.description">{{ group.description }}</span>
                             </div>
                             <div class="detail-item" v-if="group.members && group.members.length">
                                 <i class="bi bi-person-badge"></i>
-                                <span>Members: {{ group.members.join(', ') }}</span>
+                                <span><span data-translate="Members:">Members:</span> {{ group.members.join(', ')
+                                    }}</span>
                             </div>
                             <div class="detail-item" v-if="group.roles">
                                 <i class="bi bi-award"></i>
-                                <span>My Role: {{ group.roles.join(', ') }}</span>
+                                <span><span data-translate="My Role:">My Role:</span> {{ group.roles.join(', ')
+                                    }}</span>
                             </div>
                             <div class="detail-item" v-if="group.technologies">
                                 <i class="bi bi-code-slash"></i>
-                                <span>Tech Stack: {{ group.technologies.join(', ') }}</span>
+                                <span><span data-translate="Tech Stack:">Tech Stack:</span> {{
+                                    group.technologies.join(', ') }}</span>
                             </div>
                             <div class="detail-item" v-if="group.achievements">
                                 <i class="bi bi-trophy"></i>
-                                <span>Achievements: {{ group.achievements.join(', ') }}</span>
+                                <span><span data-translate="Achievements:">Achievements:</span> {{
+                                    group.achievements.join(', ') }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="stats-card slide-in-right">
-                    <h5 class="section-title">Language Usage</h5>
+                    <h2 class="section-title" data-translate="LANGUAGE USAGE">LANGUAGE USAGE</h2>
                     <div class="stats-list">
-                        <div v-for="(stat, index) in languageStats" :key="stat.name" class="stat-item" :style="`animation-delay: ${index * 0.1}s`">
+                        <div v-for="(stat, index) in languageStats" :key="stat.name" class="stat-item"
+                            :style="`animation-delay: ${index * 0.1}s`">
                             <div class="stat-info">
                                 <span>{{ stat.name }}</span>
                                 <span>{{ stat.percentage }}%</span>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar" 
-                                     :style="{ width: stat.percentage + '%', 'background-color': stat.color }"
-                                     role="progressbar" 
-                                     :aria-valuenow="stat.percentage" 
-                                     aria-valuemin="0" 
-                                     aria-valuemax="100">
+                                <div class="progress-bar"
+                                    :style="{ width: stat.percentage + '%', 'background-color': stat.color }"
+                                    role="progressbar" :aria-valuenow="stat.percentage" aria-valuemin="0"
+                                    aria-valuemax="100">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="portfolio-card slide-in-right delay-1">
-                    <h5 class="section-title">Projects Portfolio</h5>
+                    <h2 class="section-title" data-translate="PROJECTS PORTFOLIO">PROJECTS PORTFOLIO</h2>
                     <div class="portfolio-list">
-                        <div class="project-item" v-for="(project, index) in projects" :key="project.name" :style="`animation-delay: ${index * 0.2 + 0.2}s`">
-                            <h3>{{ project.name }} <span class="d-flex float-end"><i class="bi bi-arrow-down"></i><i class="bi bi-arrow-up"></i></span></h3>
-                            <p class="project-description">{{ project.description }}</p>
+                        <div class="project-item" v-for="(project, index) in projects" :key="project.name"
+                            :style="`animation-delay: ${index * 0.2 + 0.2}s`">
+                            <h3><span :data-translate="project.name">{{ project.name }}</span> <span
+                                    class="d-flex float-end"><i class="bi bi-arrow-down"></i><i
+                                        class="bi bi-arrow-up"></i></span></h3>
+                            <p class="project-description" :data-translate="project.description">{{ project.description
+                                }}</p>
                             <div class="project-technologies">
-                                <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{ tech }}</span>
+                                <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{ tech
+                                    }}</span>
                                 <a :href="project.githubUrl" class="social-link" target="_blank">
                                     <i class="bi bi-github"></i>
                                 </a>
@@ -144,4 +191,5 @@
         </main>
     </div>
 </body>
+
 </html>
