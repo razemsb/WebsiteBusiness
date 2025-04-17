@@ -385,12 +385,13 @@ body::after {
 }
 
 .tech-badge {
+    text-align: center;
     align-items: center;
     background: rgba(108, 92, 231, 0.2);
     color: var(--text-color);
-    padding: 0.3rem 0.8rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 15px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 }
 
 /* Адаптивность */
@@ -416,6 +417,7 @@ body::after {
 
     body::before {
         background: url('../img/mobile-background.jpg') center center / cover no-repeat !important;
+        opacity: 0.4;
     }
 
     body::after {
