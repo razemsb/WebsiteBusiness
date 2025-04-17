@@ -158,7 +158,6 @@ body::after {
     justify-content: center;
     gap: 0.5rem;
     font-size: 1.4rem;
-    font-weight: bold;
     color: var(--text-color);
     position: relative;
     margin-bottom: 2rem;
@@ -198,6 +197,120 @@ body::after {
 .team-info i {
     font-size: 1.2rem;
     color: var(--accent-color);
+}
+
+.custom-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 400px;
+    /* Минимальная высота слайдера */
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    width: 80%;
+    max-width: 600px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Для одинаковой высоты карточек */
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 1.5rem;
+}
+
+.project-technologies {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+    background: rgba(108, 92, 231, 0.3);
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* Добавляем промежуток между элементами */
+}
+
+.social-link {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.social-link:hover {
+    color: #6c6cf9;
+}
+
+
+.social-link:hover {
+    color: #6c6cf9;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.slider-controls button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.slider-controls button:hover {
+    background: rgba(108, 92, 231, 0.3);
+}
+
+.slider-controls button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
 }
 
 .animated-slide {
@@ -425,13 +538,18 @@ body::after {
 }
 
 .tech-badge {
-    text-align: center;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     background: rgba(108, 92, 231, 0.2);
     color: var(--text-color);
-    padding: 0.3rem 0.7rem;
-    border-radius: 15px;
-    font-size: 0.7rem;
+    padding: clamp(0.25rem, 0.5vw, 0.4rem) clamp(0.5rem, 1vw, 0.8rem);
+    border-radius: 1rem;
+    font-size: clamp(0.65rem, 0.85vw, 0.8rem);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 @media (max-width: 1200px) {

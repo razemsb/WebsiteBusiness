@@ -196,22 +196,39 @@
                 </div>
                 <div class="portfolio-card">
                     <h2 class="section-title" data-translate="PROJECTS PORTFOLIO">PROJECTS PORTFOLIO</h2>
-                    <div class="portfolio-list">
-                        <div class="project-item" v-for="(project, index) in projects" :key="project.name"
-                            :style="`animation-delay: ${index * 0.2 + 0.2}s`">
-                            <h3><span :data-translate="project.name">{{ project.name }}</span></h3>
-                            <p class="project-description" :data-translate="project.description">{{ project.description
-                                }}</p>
-                            <div class="project-technologies">
-                                <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{ tech
-                                    }}</span>
-                                <a :href="project.githubUrl" class="social-link" target="_blank">
-                                    <i class="bi bi-github"></i>
-                                </a>
+
+                    <!-- Custom Slider -->
+                    <div class="custom-slider">
+                        <div class="slider-wrapper" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+                            <div class="slide" v-for="(project, index) in projects" :key="project.name">
+                                <div class="project-card">
+                                    <h3><span :data-translate="project.name">{{ project.name }}</span></h3>
+                                    <p class="project-description" :data-translate="project.description">{{
+                                        project.description }}</p>
+                                    <div class="project-technologies">
+                                        <span class="tech-badge" v-for="tech in project.technologies" :key="tech">{{
+                                            tech }}</span>
+                                    </div>
+                                    <div class="project-footer">
+                                        <a :href="project.githubUrl" class="social-link" target="_blank">
+                                            <i class="bi bi-github"></i>
+                                        </a>
+                                        <a v-if="project.webUrl":href="project.webUrl" class="social-link" target="_blank">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button @click="prevSlide" :disabled="currentSlide === 0">←</button>
+                            <button @click="nextSlide" :disabled="currentSlide === projects.length - 1">→</button>
                         </div>
                     </div>
                 </div>
+
             </div>
         </main>
     </div>
@@ -222,7 +239,7 @@
                 preloader.classList.add('hidden');
 
                 document.getElementById('app').style.display = 'block';
-            }, 1300); 
+            }, 1300);
         });
     </script>
 

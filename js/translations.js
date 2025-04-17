@@ -3,7 +3,14 @@ const translations = {
         'MY TEAMS': 'Моя команда',
         'MY STACK': 'МОЙ СТЕК',
         'MY GROUP, ENIGMADEVIX': 'МОЯ ГРУППА, ENIGMADEVIX',
-        'Development Team': 'Команда разработки',
+        // веб разработчики //
+
+        'Web Developers': 'Команда веб разработки',
+        'Cool web developer': 'Хорошие веб разработчики',
+
+        //
+        'Website for website hosting': 'Веб сайт для хостинга сайтов',
+        'Clean code': 'Чистый код',
         'Design Collective': 'Команда дизайна',
         'Open Source Contributors': 'Контрибьюторы Open Source',
         'LANGUAGE USAGE': 'ИСПОЛЬЗОВАНИЕ ЯЗЫКОВ',
@@ -32,7 +39,14 @@ const translations = {
         'MY TEAMS': 'MY TEAMS', 
         'MY STACK': 'MY STACK',
         'MY GROUP, ENIGMADEVIX': 'MY GROUP, ENIGMADEVIX',
-        'Development Team': 'Development Team',
+        // веб разработчики //
+
+        'Web Developers': 'Web Developers',
+        'Cool web developer': 'Cool web developer',
+
+        //
+        'Clean code': 'Clean code',
+        'Website for website hosting': 'Website for website hosting',
         'Design Collective': 'Design Collective',
         'Open Source Contributors': 'Open Source Contributors',
         'LANGUAGE USAGE': 'LANGUAGE USAGE',
