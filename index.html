@@ -19,16 +19,26 @@
     <meta name="twitter:description"
         content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
     <link rel="shortcut icon" href="img/logo.jpg">
-    <link rel="preload" href="img/background_rei.webm" as="video/webm">
-    <link rel="preload" href="img/avatar-video.mp4" as="video/mp4">
+
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preload" href="img/background_rei.webm" as="video" type="video/webm">
+    <link rel="preload" href="img/avatar-video.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="https://unpkg.com/vue@3/dist/vue.global.js" as="script">
+
+    <!-- Основные стили -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Отложенная загрузка скриптов -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="js/app.vue" defer></script>
     <script src="js/translations.js" defer></script>
     <script src="js/language.js" defer></script>
+    <script src="js/app.vue" defer></script>
     <style>
         .language-switcher {
             position: fixed;
@@ -61,56 +71,71 @@
 </head>
 
 <body>
-    <div class="language-switcher">
-        <button class="lang-btn active" data-lang="ru">RU</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-    </div>
     <div id="app">
-        <main class="d-flex flex-wrap justify-content-center align-items-start">
-            <video id="background-video" autoplay muted loop class="fade-in">
-                <source src="img/background_rei.webm" type="video/webm">
-                Your browser does not support HTML5 video.
-            </video>
-            <div class="profile-card slide-in-left">
-                <div class="card-header text-center">
-                    <video id="avatar-video" autoplay muted loop class="profile-image rounded-circle pulse">
-                        <source src="img/avatar-video.mp4" type="video/mp4">
-                    </video>
-                    <h1 class="mt-3 text-pop">razemsb</h1>
-                    <div class="social-links">
-                        <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
-                            class="social-link bounce">
-                            <i :class="'bi bi-' + social.icon"></i>
-                        </a>
+        <!-- Фоновое видео -->
+        <video id="background-video" autoplay muted loop>
+            <source src="img/background_rei.webm" type="video/webm">
+        </video>
+
+        <!-- Переключатель языков -->
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- Основной контент -->
+        <main class="main-grid">
+            <!-- Левая колонка -->
+            <div class="left-column">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <video id="avatar-video" autoplay muted loop class="profile-image">
+                            <source src="img/avatar-video.mp4" type="video/mp4">
+                        </video>
+                        <h1 class="profile-name">razemsb</h1>
+                        <div class="social-links">
+                            <a v-for="social in socialLinks" :key="social.name" :href="social.url" target="_blank"
+                                class="social-link">
+                                <i :class="'bi bi-' + social.icon"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <h2 class="section-title" data-translate="MY STACK">MY STACK</h2>
-                    <div class="skills-list">
-                        <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item"
-                            @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
-                            <div class="skill-info">
-                                <span :class="skill.name.toLowerCase()">{{ skill.name }}</span>
-                                <img :src="'img/' + skill.icon" :alt="skill.name + ' icon'" class="skill-icon">
+                    <div class="profile-body">
+                        <h2 class="section-title" data-translate="MY STACK">MY STACK</h2>
+                        <div class="skills-list">
+                            <div v-for="(skill, index) in skills" :key="skill.name" class="skill-item"
+                                @click="toggleActive(skill)" :style="`animation-delay: ${index * 0.1}s`">
+                                <div class="skill-info">
+                                    <span :class="skill.name.toLowerCase()">{{ skill.name }}</span>
+                                    <img :src="'img/' + skill.icon" :alt="skill.name + ' icon'" class="skill-icon">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="my-team side-in-left">
-                <h2 class="section-title" data-translate="MY GROUP, ENIGMADEVIX">MY GROUP, ENIGMADEVIX</h2>
-                <div v-for="(Team, index) in Team" :key="Team.name" class="skill-item"
-                    :style="`animation-delay: ${index * 0.1}s`">
-                    <div class="skill-info align-items-center">
-                        <h6><i class="bi bi-laptop"></i><span class="team-name">{{ Team.name }}</span></h6>
+                <div class="my-team">
+                    <h2 class="section-title">
+                        <i class="bi bi-people-fill"></i>
+                        <span data-translate="MY TEAMS">MY TEAMS</span>
+                    </h2>
+
+                    <div v-for="(Team, index) in Team" :key="Team.name" class="team-item animated-slide"
+                        :style="`animation-delay: ${index * 0.1}s`">
+                        <div class="team-info">
+                            <h6>
+                                <i class="bi bi-laptop"></i>
+                                <span class="team-name">{{ Team.name }}</span>
+                            </h6>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <div class="stats-portfolio-container">
-                <div class="my-group side-in-right">
-                    <div class="title-wrapper">
-                        <span class="section-title">My Group, EnigmaDevix</span>
-                    </div>
+
+            <!-- Правая колонка -->
+            <div class="right-column">
+                <div class="my-group">
+                    <h2 class="section-title" data-translate="MY GROUP, ENIGMADEVIX">MY GROUP, ENIGMADEVIX</h2>
                     <div v-for="(group, index) in groups" :key="index" class="group-item"
                         :style="`animation-delay: ${index * 0.1}s`" @click="toggleGroup(index)">
                         <div class="group-header">
@@ -119,7 +144,6 @@
                             <i class="bi float-end"
                                 :class="expandedGroup === index ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
                         </div>
-
                         <div class="group-details" v-if="expandedGroup === index">
                             <div class="detail-item" v-if="group.description">
                                 <i class="bi bi-info-circle"></i>
@@ -148,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="stats-card slide-in-right">
+                <div class="stats-card">
                     <h2 class="section-title" data-translate="LANGUAGE USAGE">LANGUAGE USAGE</h2>
                     <div class="stats-list">
                         <div v-for="(stat, index) in languageStats" :key="stat.name" class="stat-item"
@@ -161,20 +185,17 @@
                                 <div class="progress-bar"
                                     :style="{ width: stat.percentage + '%', 'background-color': stat.color }"
                                     role="progressbar" :aria-valuenow="stat.percentage" aria-valuemin="0"
-                                    aria-valuemax="100">
-                                </div>
+                                    aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-card slide-in-right delay-1">
+                <div class="portfolio-card">
                     <h2 class="section-title" data-translate="PROJECTS PORTFOLIO">PROJECTS PORTFOLIO</h2>
                     <div class="portfolio-list">
                         <div class="project-item" v-for="(project, index) in projects" :key="project.name"
                             :style="`animation-delay: ${index * 0.2 + 0.2}s`">
-                            <h3><span :data-translate="project.name">{{ project.name }}</span> <span
-                                    class="d-flex float-end"><i class="bi bi-arrow-down"></i><i
-                                        class="bi bi-arrow-up"></i></span></h3>
+                            <h3><span :data-translate="project.name">{{ project.name }}</span></h3>
                             <p class="project-description" :data-translate="project.description">{{ project.description
                                 }}</p>
                             <div class="project-technologies">
