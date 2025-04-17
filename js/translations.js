@@ -1,5 +1,6 @@
 const translations = {
     ru: {
+        'MY TEAMS': 'Моя команда',
         'MY STACK': 'МОЙ СТЕК',
         'MY GROUP, ENIGMADEVIX': 'МОЯ ГРУППА, ENIGMADEVIX',
         'Development Team': 'Команда разработки',
@@ -28,6 +29,7 @@ const translations = {
         'Optimized performance by 40%': 'Оптимизирована производительность на 40%'
     },
     en: {
+        'MY TEAMS': 'MY TEAMS', 
         'MY STACK': 'MY STACK',
         'MY GROUP, ENIGMADEVIX': 'MY GROUP, ENIGMADEVIX',
         'Development Team': 'Development Team',

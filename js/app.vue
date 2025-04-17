@@ -71,7 +71,7 @@ createApp({
                 { 
                     name: 'WebPlayer', 
                     description: 'A web-based media player with playlist functionality and responsive design', 
-                    technologies: ['Vue.js', 'PHP (API)', 'Bootstrap 5.3.3'],
+                    technologies: ['Vue.js', 'Bootstrap 5.3.3'],
                     githubUrl: 'https://github.com/razemsb/WebPlayer'
                 }
             ]

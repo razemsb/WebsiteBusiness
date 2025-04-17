@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,8 +70,12 @@
         }
     </style>
 </head>
+
 <body>
-    <div id="app">
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <div id="app" style="display: none;">
         <!-- Фоновое видео -->
         <video id="background-video" autoplay muted loop>
             <source src="img/background_rei.webm" type="video/webm">
@@ -210,5 +215,17 @@
             </div>
         </main>
     </div>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('hidden');
+
+                document.getElementById('app').style.display = 'block';
+            }, 1300); 
+        });
+    </script>
+
 </body>
+
 </html>
