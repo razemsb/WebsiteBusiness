@@ -25,7 +25,6 @@ createApp({
                 { name: 'SQL', percentage: 10, color: '#00758f' }
             ],
             Team: [
-                { name: 'razemsb (me)' },
                 { name: 'Kamikaze236' },
                 { name: 'ratPunk' },
                 { name: 'AutiDarkness' },
