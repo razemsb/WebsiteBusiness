@@ -26,13 +26,13 @@ createApp({
         { name: 'SQL', percentage: 10, color: '#00758f' }
       ],
       Team: [
-        { name: 'Kamikaze236' },
-        { name: 'ratPunk' },
-        { name: 'AutiDarkness' },
-        { name: 'Minat0_Sensei' },
-        { name: 'Lagger125' },
-        { name: 'L1M1IT' }
-      ],
+      { name: 'ratPunk', role: 'Full Stack Developer' },
+      { name: 'AutiDarkness', role: 'Full Stack Developer' },
+      { name: 'Lagger125', role: 'Frontend Developer' },
+      { name: 'L1M1IT', role: 'Frontend Developer' },
+      { name: 'Kamikaze236', role: '1С Developer' },
+      { name: 'Minat0_Sensei', role: 'GameDev' }
+  ],
       groups: [
         {
           name: "Web Developers",

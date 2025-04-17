@@ -73,6 +73,7 @@
 
 <body>
     <div id="preloader">
+        <img src="img/logo.svg" alt="EnigmaDevixLogo">
         <div class="spinner"></div>
     </div>
     <div id="app" style="display: none;">
@@ -130,8 +131,10 @@
                                 <i class="bi bi-laptop"></i>
                                 <span class="team-name">{{ Team.name }}</span>
                             </h6>
+                            <p class="team-role">{{ Team.role }}</p>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -194,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-card">
+                <div v-if="projects" class="portfolio-card">
                     <h2 class="section-title" data-translate="PROJECTS PORTFOLIO">PROJECTS PORTFOLIO</h2>
 
                     <!-- Custom Slider -->
@@ -213,7 +216,8 @@
                                         <a :href="project.githubUrl" class="social-link" target="_blank">
                                             <i class="bi bi-github"></i>
                                         </a>
-                                        <a v-if="project.webUrl":href="project.webUrl" class="social-link" target="_blank">
+                                        <a v-if="project.webUrl" :href="project.webUrl" class="social-link"
+                                            target="_blank">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </div>
@@ -242,7 +246,5 @@
             }, 1300);
         });
     </script>
-
 </body>
-
 </html>

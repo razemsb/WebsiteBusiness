@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const langButtons = document.querySelectorAll('.lang-btn');
-    let currentLang = localStorage.getItem('language') || 'ru';
+    let currentLang = localStorage.getItem('language') || 'en';
 
     setLanguage(currentLang);
 

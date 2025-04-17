@@ -17,8 +17,10 @@
     inset: 0;
     background-color: #0e0e0e;
     display: flex;
+    flex-direction: column; /* Элементы будут располагаться по вертикали */
     justify-content: center;
     align-items: center;
+    gap: 20px; /* Отступ между логотипом и спиннером */
     transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
@@ -44,6 +46,28 @@
 #preloader.hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+#preloader img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    animation: fadeInShake 2s ease-in-out infinite;
+}
+
+@keyframes fadeInShake {
+    0% {
+        transform: translateY(-50px) scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-5px) scale(1);
+        opacity: 1;
+    }
 }
 
 html {
@@ -203,8 +227,7 @@ body::after {
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 400px;
-    /* Минимальная высота слайдера */
+    min-height: 300px;
 }
 
 .slider-wrapper {
@@ -234,7 +257,6 @@ body::after {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    /* Для одинаковой высоты карточек */
 }
 
 .project-card h3 {
@@ -264,11 +286,25 @@ body::after {
     font-size: 0.85rem;
 }
 
+.team-role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(227, 210, 195, 0.2);
+    color: var(--text-color);
+    padding: clamp(0.25rem, 0.5vw, 0.4rem) clamp(0.5rem, 1vw, 0.8rem);
+    border-radius: 1rem;
+    font-size: clamp(0.65rem, 0.85vw, 0.8rem);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
 .project-footer {
     display: flex;
     justify-content: center;
     gap: 15px;
-    /* Добавляем промежуток между элементами */
 }
 
 .social-link {
