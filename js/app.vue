@@ -30,9 +30,9 @@ createApp({
       { name: 'AutiDarkness', role: 'Full Stack Developer' },
       { name: 'Lagger125', role: 'Frontend Developer' },
       { name: 'L1M1IT', role: 'Frontend Developer' },
-      { name: 'Kamikaze236', role: '1С Developer' },
+      { name: 'Kamikaze236', role: '1С Developer', grade: 'TeamLid' },
       { name: 'Minat0_Sensei', role: 'GameDev' }
-  ],
+      ],
       groups: [
         {
           name: "Web Developers",

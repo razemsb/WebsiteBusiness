@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +18,6 @@
     <meta name="twitter:description"
         content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
     <link rel="shortcut icon" href="img/logo.jpg">
-
     <!-- Предзагрузка критических ресурсов -->
     <link rel="preload" href="img/background_rei.webm" as="video" type="video/webm">
     <link rel="preload" href="img/mobile-background.jpg" as="image" type="image/jpg">
@@ -28,12 +26,10 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style">
     <link rel="preload" href="css/style.css" as="style">
     <link rel="preload" href="https://unpkg.com/vue@3/dist/vue.global.js" as="script">
-
     <!-- Основные стили -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
-
     <!-- Отложенная загрузка скриптов -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -70,7 +66,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="preloader">
         <img src="img/logo.svg" alt="EnigmaDevixLogo">
@@ -131,10 +126,9 @@
                                 <i class="bi bi-laptop"></i>
                                 <span class="team-name">{{ Team.name }}</span>
                             </h6>
-                            <p class="team-role">{{ Team.role }}</p>
+                            <p class="team-role">{{ Team.role }} <i v-if="Team.grade" class="bi bi-key-fill"></i></p>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -244,6 +238,15 @@
 
                 document.getElementById('app').style.display = 'block';
             }, 1300);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.innerWidth <= 769) {
+                const bgVideo = document.getElementById('background-video');
+                if (bgVideo) {
+                    bgVideo.remove();
+                }
+            }
         });
     </script>
 </body>
