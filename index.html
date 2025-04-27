@@ -64,6 +64,21 @@
         .lang-btn.active {
             background: rgba(108, 92, 231, 0.5);
         }
+
+        @media (max-width: 769px) {
+            .profile-card,
+            .my-team,
+            .my-group,
+            .stats-card,
+            .portfolio-card {
+                backdrop-filter: none;
+                background: rgba(0,0,0,0.5);
+            }
+        }
+
+        .main-grid {
+            contain: paint;
+        }
     </style>
 </head>
 <body>
