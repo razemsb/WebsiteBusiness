@@ -46,6 +46,13 @@ createApp({
       ],
       projects: [
         { 
+          name: 'GameHub', 
+          description: 'Website for buy game keys', 
+          technologies: ['Vue.js'],
+          githubUrl: 'https://github.com/razemsb/gamehub',
+          webUrl: 'https://razemsb.github.io/gamehub/'
+        },
+        { 
           name: 'FileManager', 
           description: 'A modern file management system with Vue.js frontend and PHP API backend', 
           technologies: ['Vue.js', 'PHP (API)'],

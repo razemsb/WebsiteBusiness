@@ -9,6 +9,7 @@ const translations = {
         'Cool web developer': 'Хорошие веб разработчики',
 
         //
+        'Website for buy game keys': 'Веб Магазин по продаже ключей для игр',
         'Website for website hosting': 'Веб сайт для хостинга сайтов',
         'Clean code': 'Чистый код',
         'Design Collective': 'Команда дизайна',
