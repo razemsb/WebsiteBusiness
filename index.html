@@ -17,19 +17,19 @@
     <meta name="twitter:title" content="RazeMsb | Web Developer Portfolio">
     <meta name="twitter:description"
         content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
-    <link rel="shortcut icon" href="img/logo.jpg">
+    <link rel="shortcut icon" href="img/favicon.png">
     <link rel="preload" href="img/background_rei.webm" as="video" type="video/webm">
     <link rel="preload" href="img/mobile-background.jpg" as="image" type="image/jpg">
     <link rel="preload" href="img/avatar-video.mp4" as="video" type="video/mp4">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style">
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="https://unpkg.com/vue@3/dist/vue.global.js" as="script">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="preload" href="vendors/bootstrap-5.3.5-dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="vendors/bootstrap-5.3.5-dist/icons/font/bootstrap-icons.min.css" as="style">
+    <link rel="preload" href="css/style.min.css" as="style">
+    <link rel="preload" href="vendors/vue/vue.js" as="script">
+    <link href="vendors/bootstrap-5.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/bootstrap-5.3.5-dist/icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="vendors/vue/vue.js" defer></script>
+    <script src="vendors/bootstrap-5.3.5-dist/js/bootstrap.min.js" defer></script>
     <script src="js/translations.js" defer></script>
     <script src="js/language.js" defer></script>
     <script src="js/app.vue" defer></script>
@@ -139,7 +139,6 @@
         }
     </style>
 </head>
-
 <body>
     <div id="preloader">
         <svg width="200" height="105" viewBox="0 0 200 105" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,20 +167,14 @@
         <div class="spinner"></div>
     </div>
     <div id="app" style="display: none;">
-        <!-- Фоновое видео -->
         <video id="background-video" autoplay muted loop>
             <source src="img/background_rei.webm" type="video/webm">
         </video>
-
-        <!-- Переключатель языков -->
         <div class="language-switcher">
             <button class="lang-btn active" data-lang="ru">RU</button>
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
-
-        <!-- Основной контент -->
         <main class="main-grid">
-            <!-- Левая колонка -->
             <div class="left-column">
                 <div class="profile-card">
                     <div class="profile-header">
@@ -214,7 +207,6 @@
                         <i class="bi bi-people-fill"></i>
                         <span data-translate="MY TEAMS">MY TEAMS</span>
                     </h2>
-
                     <div v-for="(Team, index) in Team" :key="Team.name" class="team-item animated-slide"
                         :style="`animation-delay: ${index * 0.1}s`">
                         <div class="team-info">
@@ -226,10 +218,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <!-- Правая колонка -->
             <div class="right-column">
                 <div class="my-group">
                     <h2 class="section-title" data-translate="MY GROUP, ENIGMADEVIX">MY GROUP, ENIGMADEVIX</h2>
@@ -289,13 +278,11 @@
                 </div>
                 <div v-if="projects" class="portfolio-card">
                     <h2 class="section-title" data-translate="PROJECTS PORTFOLIO">PROJECTS PORTFOLIO</h2>
-
-                    <!-- Custom Slider -->
                     <div class="custom-slider">
                         <div class="slider-wrapper" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                             <div class="slide" v-for="(project, index) in projects" :key="project.name">
                                 <div class="project-card">
-                                    <h3><span :data-translate="project.name">{{ project.name }}</span></h3>
+                                    <h3><span :data-translate="project.name">{{ project.name }}</span><span class="float-end"><i class="bi bi-info-circle"></i></span></h3>
                                     <p class="project-description" :data-translate="project.description">{{
                                         project.description }}</p>
                                     <div class="project-technologies">
@@ -314,15 +301,12 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Slider Controls -->
                         <div class="slider-controls">
                             <button @click="prevSlide" :disabled="currentSlide === 0">←</button>
                             <button @click="nextSlide" :disabled="currentSlide === projects.length - 1">→</button>
                         </div>
                     </div>
-                </div>
-
+                </div>                                
             </div>
         </main>
     </div>
@@ -337,7 +321,7 @@
 
                 document.getElementById('app').style.display = 'block';
                 svg.remove();
-            }, 1500);
+            }, 1300);
         });
 
         document.addEventListener('DOMContentLoaded', () => {

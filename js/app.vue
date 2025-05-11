@@ -3,7 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      currentSlide: 0,  // Текущий индекс слайда
+      currentSlide: 0,
       expandedGroup: null,
       socialLinks: [
         { name: 'GitHub', url: 'https://github.com/razemsb', icon: 'github' },
