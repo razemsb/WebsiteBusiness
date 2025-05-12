@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RazeMsb | Web Developer Portfolio - Vue.js, PHP, Bootstrap Specialist</title>
-    <meta name="description"
-        content="Professional portfolio of RazemSB, a web developer specializing in Vue.js, PHP, and Bootstrap. Check out my projects and skills.">
+    <meta name="description" content="Professional portfolio of RazemSB, a web developer specializing in Vue.js, PHP, and Bootstrap. Check out my projects and skills.">
     <meta name="keywords" content="web developer, portfolio, Vue.js, PHP, Bootstrap, frontend, backend, fullstack">
     <meta property="og:title" content="RazeMsb | Web Developer Portfolio">
-    <meta property="og:description"
-        content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
+    <meta property="og:description" content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
     <meta property="og:image" content="https://razemsb.github.io/img/avatar.jpg">
     <meta property="og:url" content="https://razemsb.github.io">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RazeMsb | Web Developer Portfolio">
-    <meta name="twitter:description"
-        content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="twitter:description" content="Professional portfolio of RazeMsb, a web developer specializing in Vue.js, PHP, and Bootstrap.">
+    <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
     <link rel="preload" href="img/background_rei.webm" as="video" type="video/webm">
     <link rel="preload" href="img/mobile-background.jpg" as="image" type="image/jpg">
     <link rel="preload" href="img/avatar-video.mp4" as="video" type="video/mp4">
@@ -282,7 +282,9 @@
                         <div class="slider-wrapper" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                             <div class="slide" v-for="(project, index) in projects" :key="project.name">
                                 <div class="project-card">
-                                    <h3><span :data-translate="project.name">{{ project.name }}</span><span class="float-end"><i class="bi bi-info-circle"></i></span></h3>
+                                    <h3><span :data-translate="project.name">{{ project.name }}</span>
+                                        <!-- <span class="float-end"><i class="bi bi-info-circle"></i></span> -->
+                                    </h3>
                                     <p class="project-description" :data-translate="project.description">{{
                                         project.description }}</p>
                                     <div class="project-technologies">
